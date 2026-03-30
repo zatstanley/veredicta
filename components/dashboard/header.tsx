@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   Sparkles,
   Search,
@@ -9,6 +10,7 @@ import {
   Database,
   ShieldCheck,
   Activity,
+  Bot,
   ChevronDown,
   FileDown,
   LoaderCircle,
@@ -29,6 +31,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
 
 const periods: DashboardFilters["period"][] = [
   "7 dias",
@@ -226,6 +229,17 @@ export function DashboardHeader({
                 {mounted && time ? `Atualizado em ${formatDate(time)}` : "Carregando..."}
               </p>
             </div>
+
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/15 hover:text-primary"
+            >
+              <Link href="/chatbot">
+                <Bot className="h-4 w-4" />
+                Abrir chatbot
+              </Link>
+            </Button>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
